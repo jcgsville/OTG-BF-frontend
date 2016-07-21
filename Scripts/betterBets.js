@@ -5,6 +5,8 @@
                 'ui.bootstrap',
                 'ui.router',
                 'betterBets.myBets',
-                'betterBets.newBet'
+                'betterBets.newBet',
+                'betterBets.signIn',
+                'betterBets.signUp'
     ]);
 }());

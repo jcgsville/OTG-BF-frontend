@@ -27,6 +27,16 @@
                 url: 'newBet',
                 templateUrl: 'Partials/newBet.html',
                 controller: 'newBetController as newBetCtrl'
+            })
+            .state('signIn', {
+                url: 'signIn',
+                templateUrl: 'Partials/signIn.html',
+                controller: 'signInController as signInController'
+            })
+            .state('signUp', {
+                url: 'signUp',
+                templateUrl: 'Partials/signUp.html',
+                controller: 'signUpController as signUpController'
             });
         
     }
