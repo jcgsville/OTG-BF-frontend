@@ -1,3 +1,43 @@
-<div>
-my bets
-</div>
+
+<!doctype html>
+<html ng-app="stache">
+<head>
+    <link rel="stylesheet" href="https://sky.blackbaudcdn.net/skyux/1.6.6/css/sky-bundle.css">
+</head>
+<body style="background: white">
+    <div ng-controller="Scripts/myBets.controller as myBetsCtrl">
+        <h3>My Bets</h3>
+        <div class="row" style="margin-top: 15px;">
+            <div class="col-md-6">
+                <!--<button class="btn bb-btn-secondary" ng-click="tileCtrl.open()" type="button">Open modal with tile</button>-->
+                <button class="btn bb-btn-secondary" ng-click="myBetsCtrl.collapseAll()" type="button">Collapse</button>
+                <button class="btn bb-btn-secondary" ng-click="myBetsCtrl.expandAll()" type="button">Expand</button>
+            </div>
+        </div>
+        <div style="background-color: #f2f2f2; margin-top: 15px; padding: 15px">
+            <bb-tile-dashboard bb-layout="myBetsCtrl.layout" bb-tiles="myBetsCtrl.tiles" bb-tile-dashboard-all-collapsed="myBetsCtrl.allCollapsed"></bb-tile-dashboard>
+        </div>
+    </div>
+
+    <div ng-repeat="bet in myBetsCtrl.bets">
+        <script type="text/ng-template" id="myBetsTemplate.html">
+            <bb-tile bb-tile-header="myBetsCtrl.name" bb-tile-collapsed="myBetsCtrl.is_collapsed" bb-tile-settings-click="myBetsCtrl.openSettings()">
+                <bb-tile-header-content>
+                    bet.opponent
+                </bb-tile-header-content>
+                <div bb-tile-section>
+                    <div class="bet-container">
+                        <div id="you-container" class="tile-container"></div>
+                        <div id="graph-container"  class="tile-container"></div>
+                        <div id="opponent-container"  class="tile-container"></div>
+
+                    </div>
+                 </div>
+                <script src="piesource.js"> </script>
+            </bb-tile>
+        </script>
+    </div>
+
+    <script src="https://sky.blackbaudcdn.net/skyux/1.6.6/js/sky-bundle.min.js"></script>
+</body>
+</html>
