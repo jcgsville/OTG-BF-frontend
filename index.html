@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="betterBets">
+<head>
+    <link rel="stylesheet" href="https://sky.blackbaudcdn.net/skyux/1.6.6/css/sky-bundle.css" integrity="sha384-0qQTcXi3TFJvyqm3IBveZiYW0GHbY8LuphtukDr6FkZdy6FEXIHdQ6yF6Z3GUbvK" crossorigin="anonymous">
+</head>
+<body>
+    <bb-navbar class="bb-navbar-showmobile">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="bb-navbar-active"><a data-ui-sref="myBets" href="#">My Bets</a></li>
+                <li class="bb-navbar-active"><a data-ui-sref="newBet" href="#">New Bet</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="">Sign Out</a></li>
+            </ul>
+        </div>
+    </bb-navbar>
+
+    <div ui-view></div>
+
+    <script src="https://sky.blackbaudcdn.net/skyux/1.6.6/js/sky-bundle.min.js" integrity="sha384-DD+Y69jYPzp2eVhGSZyfXyW+TxZpImxAF4T16WyV4YVpycGhkUVzOiCE0jKscve/" crossorigin="anonymous"></script>
+
+    <script src="Scripts/betterBets.js"></script>
+    <script src="Scripts/betterBets.config.js"></script>
+    <script src="Scripts/betterBets.controller.js"></script>
+    <script src="Scripts/myBets/myBets.js"></script>
+    <script src="Scripts/myBets/myBets.controller.js"></script>
+    <script src="Scripts/newBet/newBet.js"></script>
+    <script src="Scripts/newBet/newBet.controller.js"></script>
+
+</body>
+</html>
