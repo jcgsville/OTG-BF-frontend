@@ -1,3 +1,4 @@
+/* Template */
 .better-bets-header {
     margin-bottom: 0px !important;
     min-height: inherit !important;
@@ -66,7 +67,9 @@
     left: auto;
     right: 0;
 }
+/* End template */
 
+/* Sign in */
 .signInBody {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -175,9 +178,10 @@ border:0px solid #ccc !important;
   background-color: #293846;
   border: 1px solid transparent;
   border-radius: 4px;
-}/*#1c84c6
-#293846*/
+}
+/* End sign in */
 
+/* New Bet */
 .text-field {
     max-width: 400px;
     margin: auto;
@@ -202,3 +206,127 @@ border:0px solid #ccc !important;
     color: #293846;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+/* End new bet */
+
+/* Sign up */
+.contentContainer {
+  padding-top: 15vh;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #BD9456;
+  font-size: 120px;
+  letter-spacing: -3px;
+  font-style: lighter;
+  font-variant: normal;
+  font-weight: 200;
+  line-height: 15.4px;
+  text-align: center;
+}
+
+
+.top-content .text {
+  padding-top: 120px;
+  color: #fff;
+}
+
+.top-content .text h1 { color: #fff; }
+
+.top-content .description {
+  margin: 20px 0 10px 0;
+}
+
+.top-content .description p { opacity: 0.8; }
+
+.top-content .description a {
+  color: #fff;
+}
+.top-content .description a:hover, 
+.top-content .description a:focus { border-bottom: 1px dotted #fff; }
+
+.top-content .top-big-link {
+  margin-top: 35px;
+}
+
+.form-top {
+  overflow: hidden;
+  padding: 0 25px 15px 25px;
+  text-align: left;
+}
+
+.form-top-left {
+  float: left;
+  width: 75%;
+  padding-top: 25px;
+}
+
+.form-top-left h3 { margin-top: 0; color: grey; }
+.form-top-left p { color: grey; opacity: 0.8; }
+
+.form-top-right {
+  float: left;
+  width: 25%;
+  padding-top: 5px;
+  font-size: 66px;
+  color: #fff;
+  line-height: 100px;
+  text-align: right;
+}
+.signUpForm{
+  background-color: white;
+}
+.form-bottom form textarea {
+  height: 100px;
+}
+
+.form-bottom form .input-error {
+  border-color: #66d6c5;
+}
+
+.signupTitle{
+    margin-top: 30vh;
+    color: #BD9456;
+    font-size: 50px;
+}
+
+.form-signup {
+  /*width: 450px;*/
+  padding-left: 0px;
+  /*padding-right: 40px;*/
+  padding-top: 60px;
+  margin: 0 auto;
+}
+.form-signup .form-signup-heading,
+.form-signup .checkbox {
+  margin-bottom: 10px;
+}
+.form-signup .checkbox {
+  font-weight: normal;
+}
+.form-signup .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signup .form-control:focus {
+  z-index: 2;
+}
+.form-signup input[type="text"] {
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #ccc !important;
+}
+.form-signup input[type="password"] {
+  margin-bottom: 3px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #ccc !important;
+}
+/* End sign up */
