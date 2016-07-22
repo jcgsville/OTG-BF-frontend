@@ -1,3 +1,38 @@
-<div>
-sign up
+<div class="container">
+    <div class="row">
+        <div class="col-sm-7 text">
+            <h1 class="signupTitle">Competition made fun.</h1>
+        <div class="description">
+            <p>Bet against your friends and donate to a charity. <strong>Everybody wins when your winnings help others</strong></p>
+        </div>
+        </div>
+        <div class="col-sm-5 signUpForm">
+            <div class="form-top">
+                <div class="form-top-left">
+                <h3>Sign up now</h3>
+                <p>Fill out below to compete for a cause</p>
+                </div>    
+     
+                <div class="form-signup">
+                    <form role="form" action="" method="post" data-toggle="validator" class="registration-form">
+                        <label for="inputFirstName" class="sr-only">First Name</label>
+                        <input type="text" id="inputFirstName" class="form-control" placeholder="First Name" required autofocus> 
+                        <label for="inputLastName" class="sr-only">Last Name</label>
+                        <input type="text" id="inputLastName" class="form-control" placeholder="Last Name" required autofocus>
+
+                        <label for="f" class="sr-only">Email</label>
+                        <input type="text" id="f" class="form-control" placeholder="Email" required autofocus>
+                        <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
+                        <div class="help-block">Minimum of 6 characters</div>
+                        <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops,these don't match" placeholder="Confirm" required>
+                        <div class="help-block with-errors"></div>
+                        <script> $('#inputPassword').validator() </script>
+
+                        <button type="submit" class="btn">Welcome a'baud!</button>
+                    </form>
+                </div>     
+            </div>
+
+        </div>
+    </div>
 </div>
