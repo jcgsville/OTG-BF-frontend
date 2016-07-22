@@ -173,7 +173,11 @@ function updateTitleDesc(d){
   console.log(d);
   document.getElementById("challengeTitle").innerText = d.username + " vs " + d.opponent;
   document.getElementById("desc").innerHTML = "<h4 class=\"center descriptionC\">" + d.description + "<h4/>";
+<<<<<<< HEAD
   document.getElementById("exp").innerHTML = "<h4 class=\"center\">" + "This bet expires on " + d.expDate + ". Your money will be donated to the winner's charity on that date.<h4/>";
+=======
+  document.getElementById("exp").innerHTML = "<h4 class=\"center\">" + "This bet expires on " + d.expDate + ". Your money will be donated to the charity of your choice on that date.<h4/>";
+>>>>>>> 7c4f367650ac61e76cc9fc890f6a55831ee08189
   document.getElementById("user").innerHTML = "<h1 class=\"userStyle\">" + d.username + "</h1><h2 class=\"charityName\"><span class=\"charityNameHeader\">Charity:</span><br/>" + getCharity(d, d.username) + "</h2><h2 class=\"charityName\"> <span class=\"charityNameHeader\">Condition:</span><br/>" + d.winCondition +" </h2>";
   document.getElementById("opponents").innerHTML = "<h1 class=\"userStyle\">" + d.opponent  + "</h1><h2 class=\"charityName\"><span class=\"charityNameHeader\">Charity:</span><br/>" + getCharity(d, d.opponent) + "</h2><h2 class=\"charityName\"><span class=\"charityNameHeader\">Condition:</span><br/>" + d.loseCondition +"</h2>";
 }

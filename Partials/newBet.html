@@ -22,22 +22,22 @@
 		<div class="col-xs-6">
 			<div class="text-field">
 				<label for="charity">Charity</label>
-				<input type="text" name="charity" class="form-control bevel"/>
+				<input type="text" name="charity" class="form-control bevel" ng-model="newBetCtrl.charity"/>
 			</div>
 			<div class="text-field">
 				<label for="amount">Amount</label>
-				<input type="text" name="amount" class="form-control bevel"/>
+				<input type="text" name="amount" class="form-control bevel" ng-model="newBetCtrl.amount"/>
 			</div>
 			<div class="text-field">
 				<label for="win-condition">Win condition</label>
-				<input type="text" name="win-condition" class="form-control bevel"/>
+				<input type="text" name="win-condition" class="form-control bevel" ng-model="newBetCtrl.winCondition"/>
 			</div>
 		</div>
 
 		<div class="col-xs-12">
 			<div class="text-field">
 				<label for="opponent">Opponent's username</label>
-				<input type="text" name="opponent" class="form-control"/>
+				<input type="text" name="opponent" class="form-control bevel"/>
 			</div>
 			<a class="btnTyler" style="width: 20%; margin: auto;" ng-click="newBetCtrl.createBet()">Send challenge</a>
 		</div>
