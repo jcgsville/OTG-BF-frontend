@@ -1,3 +1,70 @@
+.better-bets-header {
+    margin-bottom: 0px !important;
+    min-height: inherit !important;
+    background-color: #f3f3f4;
+}
+
+.flex-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    -webkit-box-align-items: center;
+    -webkit-align-items: center;
+    align-items: center;
+    width: 100%;
+    height: inherit;
+    padding-left: 5px;
+}
+
+.header-logo {
+    height: 22px;
+}
+
+.blackbaud-title {
+    font-size: 36px;
+    display: inline;
+    padding: 5px;
+    color: #bd9456;
+}
+
+.super {
+    vertical-align: 85%;
+    font-size: 8px;
+    margin-left: -4px;
+}
+
+.client-header {
+    display: block;
+    text-align: right;
+    padding: 5px;
+}
+
+.client-label {
+    font-weight: 800;
+}
+
+.nav-header-hidden {
+    display: none !important;
+}
+
+.nav-welcome-btn {
+    background-color: transparent;
+}
+
+.nav-welcome-btn:hover {
+    background-color: #ECECEC;
+}
+
+.nav-welcome:hover .nav-welcome-menu {
+    display: block;
+    margin-top: 0px;
+    left: auto;
+    right: 0;
+}
+
 .signInBody {
   padding-top: 40px;
   padding-bottom: 40px;
