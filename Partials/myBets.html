@@ -1,11 +1,48 @@
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="../Scripts/myBets/myBets.controller.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../Styles/myBets.css">
 
-<!doctype html>
-<html ng-app="stache">
-<head>
-    <link rel="stylesheet" href="https://sky.blackbaudcdn.net/skyux/1.6.6/css/sky-bundle.css">
-</head>
-<body style="background: white">
-    <div ng-controller="Scripts/myBets.controller as myBetsCtrl">
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content" style = "display:table">
+    <div class="modal-header">
+      <span class="close">X</span>
+      <h2 id = "challengeTitle"></h2>
+
+    </div >
+    	<div id = "row" style = "display:row">
+		    <div style = "display:table-cell;width:25%;margin-left:25px;padding-right:25px;padding-left:25px" class = "textMid">
+
+		    	<div id = "descExp"></div>
+		    	<br/>
+		    	<div id = "commentsDiv" class="scrollable"> 
+		    		<ul id = "commentsList"></ul>
+		    	</div>
+		    	<br/>
+		    	<form>
+		    		<input placeholder="Talk shit here"></input>
+		    		<button onclick="postComment()">Send Comment</button>
+		    	</form>
+		    </div>
+		    <div style = "width:50%;display:table-cell;" id="modal-body"><div id = "titleField"></div></div>
+		    <div style = "display:table-cell;width:25%;margin-right:25px;padding-left:25px;padding-right:25px" id="opponents" class = "textMid"></div>
+		</div>
+		<div class = "modal-footer">
+			<div class = "submitBtns">
+				<button onclick = "SubmitWin()"> I Won! </button> 
+				<button onclick = "SubmitLose()"> I Lost </button> 
+				<button onclick = "SubmitDraw()"> Draw </button> 
+			</div>
+		</div>
+  </div>
+
+</div>
+
+
+    <div ng-app="betterBets.myBets" ng-controller="myBetsController">
         <h3>My Bets</h3>
         <div class="row" style="margin-top: 15px;">
             <div class="col-md-6">
@@ -14,8 +51,20 @@
                 <button class="btn bb-btn-secondary" ng-click="myBetsCtrl.expandAll()" type="button">Expand</button>
             </div>
         </div>
-        <div style="background-color: #f2f2f2; margin-top: 15px; padding: 15px">
-            <bb-tile-dashboard bb-layout="myBetsCtrl.layout" bb-tiles="myBetsCtrl.tiles" bb-tile-dashboard-all-collapsed="myBetsCtrl.allCollapsed"></bb-tile-dashboard>
+        <div style="background-color: white; margin-top: 15px; padding: 15px">
+            <div class = "toggle-tile" bb-layout="myBetsCtrl.layout" bb-tiles="myBetsCtrl.tiles" bb-tile-dashboard-all-collapsed="myBetsCtrl.allCollapsed" style="cursor:pointer;">
+            	<span class = "challengeTitle" style="color:red">{{x.challenge}}</span>
+            	<hr/>
+            	<div class = "betData">
+                    <div id="graph-container"  class="chart" style="display:inline-block"></div>
+                  
+
+                    <script src="../Scripts/PieChart.js"> </script>
+            	</div>
+
+           	<br/><br/>
+        </div>
+
         </div>
     </div>
 
@@ -36,8 +85,5 @@
                 <script src="piesource.js"> </script>
             </bb-tile>
         </script>
-    </div>
 
-    <script src="https://sky.blackbaudcdn.net/skyux/1.6.6/js/sky-bundle.min.js"></script>
-</body>
-</html>
+    </div>
