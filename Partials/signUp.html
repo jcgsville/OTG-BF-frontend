@@ -15,20 +15,17 @@
      
                 <div class="form-signup">
                     <form role="form" action="" method="post" data-toggle="validator" class="registration-form">
-                        <label for="inputFirstName" class="sr-only">First Name</label>
-                        <input type="text" id="inputFirstName" class="form-control" placeholder="First Name" required autofocus> 
-                        <label for="inputLastName" class="sr-only">Last Name</label>
-                        <input type="text" id="inputLastName" class="form-control" placeholder="Last Name" required autofocus>
+                        <label for="inputUsername" class="sr-only">Username</label>
+                        <input type="text" id="inputFirstName" class="form-control" placeholder="Username" required autofocus ng-model="signUpCtrl.username">
 
                         <label for="f" class="sr-only">Email</label>
-                        <input type="text" id="f" class="form-control" placeholder="Email" required autofocus>
-                        <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
+                        <input type="text" id="f" class="form-control" placeholder="Email" required autofocus ng-model="signUpCtrl.email">
+                        <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required ng-model="signUpCtrl.password">
                         <div class="help-block">Minimum of 6 characters</div>
                         <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops,these don't match" placeholder="Confirm" required>
                         <div class="help-block with-errors"></div>
-                        <script> $('#inputPassword').validator() </script>
 
-                        <button type="submit" class="btn">Welcome a'baud!</button>
+                        <button ng-click="signUpCtrl.signUp()" class="btn">Welcome a'baud!</button>
                     </form>
                 </div>     
             </div>

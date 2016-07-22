@@ -20,6 +20,12 @@
     padding-left: 5px;
 }
 
+.hiddenHeader{
+  visibility: hidden;
+}
+.visibleHeader{
+  visibility: visible;
+}
 .header-logo {
     height: 22px;
 }

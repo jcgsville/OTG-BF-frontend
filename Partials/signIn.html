@@ -1,54 +1,26 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>better bets</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../Styles/betterBets.css">
-</head>
-<body>
+<div class="container-fluid">
+  <div class="row">
+    <h1 class="btrbt">better bets</h1>
+  </div>
+  <div class="row">
+    <h2 class="gamble4good">Gambling for good</h2>
+  </div>
+  <div class="row logT">
+    <form class="form-signin">
+      <label for="inputUser" class="sr-only">Email address</label>
+      <input type="userName" id="inputUser" class="form-control" placeholder="Username" required autofocus ng-model="signInCtrl.username">
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="signInCtrl.password">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <a id="signInButton" class="btnTyler" ng-click="signInCtrl.signIn()">Sign in</a>
 
-
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
-  <body class="signInBody">
- <div class="container-fluid">
-    <div class="row">
-        <h1 class="btrbt">better bets</h1>
-    </div>
-    <div class="row">
-        <h2 class="gamble4good">Gambling for good</h2>
-    </div>
-    <div class="row logT">
-      <form class="form-signin">
-        <label for="inputUser" class="sr-only">Email address</label>
-        <input type="userName" id="inputUser" class="form-control" placeholder="Username" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <a class="btnTyler" type="submit" href="http://localhost">Sign in</a>
-
-        <div class="noAccount">Dont have an account yet?
+      <div class="noAccount">Dont have an account yet?
         <a type="submit" href="http://localhost/#/signUp">Sign up</a>
-        </div>
-      </form>
-
-    </div>
-  </body>
-</html>
-  
-</body>
-</html>
-
-<!-- btn-lg btn-primary btn-block -->
+      </div>
+    </form>
+  </div>
+</div>

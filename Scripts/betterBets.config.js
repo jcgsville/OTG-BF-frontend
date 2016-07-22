@@ -31,14 +31,18 @@
             .state('signIn', {
                 url: '/signIn',
                 templateUrl: 'Partials/signIn.html',
-                controller: 'signInController as signInController'
+                controller: 'signInController as signInCtrl'
             })
             .state('signUp', {
                 url: '/signUp',
                 templateUrl: 'Partials/signUp.html',
-                controller: 'signUpController as signUpController'
+                controller: 'signUpController as signUpCtrl'
             });
         
+        // $httpProvider.defaults.headers.common = {};
+        $httpProvider.defaults.headers.post = {};
+        // $httpProvider.defaults.headers.put = {};
+        // $httpProvider.defaults.headers.patch = {};
     }
 
     betterBetsConfig.$inject = ['$httpProvider', '$stateProvider', '$urlRouterProvider', '$compileProvider', 'bbViewKeeperConfig'];
