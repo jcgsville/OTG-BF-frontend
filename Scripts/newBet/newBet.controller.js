@@ -2,7 +2,7 @@
     "use strict";
 
     function newBetCtrl() {
-
+    	this.expiration = null;
     }
 
     newBetCtrl.$inject = [];

@@ -1,3 +1,46 @@
 <div>
-new bet
+	<form class="form-new-bet">
+
+	<div class="row">
+
+		<div class="col-xs-12" style="text-align: center">
+			<span class="new-bet-message">Start a new bet and give for good!</span>
+		</div>
+
+		<div class="col-xs-6">
+			<div class="text-field">
+		    	<label for="description">Description of bet</label>
+		    	<textarea rows="4" type="text" id="description" class="form-control description-field" required></textarea>
+	    	</div>
+	    	<div class="text-field">
+	    		<label for="expiration">Expiration date</label>
+	    		<bb-datepicker id="exipration" ng-model="newBetCtrl.expiration"></bb-datepicker>
+	    	</div>
+		</div>
+
+		<div class="col-xs-6">
+			<div class="text-field">
+				<label for="charity">Charity</label>
+				<input type="text" name="charity" class="form-control"/>
+			</div>
+			<div class="text-field">
+				<label for="amount">Amount</label>
+				<input type="text" name="amount" class="form-control"/>
+			</div>
+			<div class="text-field">
+				<label for="win-condition">Win Condition</label>
+				<input type="text" name="win-condition" class="form-control"/>
+			</div>
+		</div>
+
+		<div class="col-xs-12">
+			<div class="text-field">
+				<label for="opponent">Opponent's username</label>
+				<input type="text" name="opponent" class="form-control"/>
+			</div>
+			<a class="btnTyler" type="submit" href="" style="width: 20%; margin: auto;">Send challenge</a>
+		</div>
+	</div>
+
+	</form>
 </div>

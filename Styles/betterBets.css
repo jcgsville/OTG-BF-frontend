@@ -24,6 +24,8 @@
 }
 
 .blackbaud-title {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #BD9456;
     font-size: 36px;
     display: inline;
     padding: 5px;
@@ -175,3 +177,28 @@ border:0px solid #ccc !important;
   border-radius: 4px;
 }/*#1c84c6
 #293846*/
+
+.text-field {
+    max-width: 400px;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.description-field {
+    resize: vertical;
+}
+
+.form-new-bet {
+  max-width: 1000px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 40px;
+  margin: 0 auto;
+}
+
+.new-bet-message {
+    font-size: 24px;
+    color: #293846;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
