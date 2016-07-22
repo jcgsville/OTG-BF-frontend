@@ -1,10 +1,10 @@
-body {
+.signInBody {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #f3f3f4;
 }
 
-h1 {
+.btrbt {
   padding-top: 15vh;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #BD9456;
@@ -16,7 +16,7 @@ h1 {
   line-height: 15.4px;
   text-align: center;
 }
-h2 {
+.gamble4good {
 
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #C9C9C9;
