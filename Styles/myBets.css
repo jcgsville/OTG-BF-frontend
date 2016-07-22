@@ -99,6 +99,7 @@ button {
     display:inline-block;
     width:100%;
     height:auto;
+    margin-left:15px;
 }
 #user {
     text-align:left;
@@ -204,9 +205,14 @@ section {
 
 
 body {
-  background: #72cffa;
+  background: lightgray;
 }
 
+.winBtn {
+    border-radius:5px;
+    color:white !important;
+    padding:20px;
+}
 /* .modal-transparent */
 
 .modal-transparent {
@@ -216,7 +222,7 @@ body {
   background: transparent;
 }
 .modal-backdrop.modal-backdrop-transparent {
-  background: #ffffff;
+  background: white;
 }
 .modal-backdrop.modal-backdrop-transparent.in {
   opacity: .9;
@@ -273,8 +279,10 @@ body {
 
 #modal-fullscreen{
   margin: auto;
-  width: 90%;
+  width: 100%;
   height: 70%;
+  overflow-y:visible;
+
 }
 
 /* centering styles for jsbin */
