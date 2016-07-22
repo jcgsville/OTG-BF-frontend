@@ -1,34 +1,94 @@
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="../Scripts/myBets/myBets.controller.js"></script>
 <script src="http://d3js.org/d3.v3.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="../Styles/myBets.css">
 
 <!-- The Modal -->
-<div id="myModal" class="modal">
+<!--modal-->
+<div class = "container-fluid">
+	<div id="modal-fullscreen" class="modal show hideModal modal-fullscreen" tabindex="-1" role="dialog" aria-hidden="true">
+	   <div class="modal-dialog bla">
+	       <div class="modal-content">
+	           <div class="modal-header">
+	               <span type="button" class="close">X</span>
+	                   <h3 id = "challengeTitle">Modal header</h3>
+	           </div>
+	           <div class="modal-body sid">
+	             <div class="row">
+	               <div class="col-lg-6">
+	               	<div class="row">
+	               		<div id = "desc"></div>
+	               	</div>
+	               	<div class = "clear"></div>
+	               	<div class="row" id = "graph">
+	               	<div class="row"> 
+	               	<div id = "exp"></div>
+	               	</div>
+	                </div>
+
+	                 <br/>
+	                 
+	               </div>
+	               <div class="col-lg-6">
+	                 <div class="row">
+	                   <div class="col-lg-6">
+	                     <div id = "user" style = "width:35%;float:left"> </div>
+	                   </div>
+	                   <div class="col-lg-6">
+	                     <div style = "display:table-cell;width:35%;margin-right:25px;padding-left:25px;padding-right:25px;float:left" id="opponents" class = "textMid"></div>
+	                   </div>
+	                 </div>
+	                   <div class="row">
+	                     	<div id = "commentsDiv" style = "clear:left;width:100%"> 
+				    		<div id = "commentsList" class="scrollable"></div>
+				    		<form>
+					    		<input placeholder="Talk shit here"></input>
+					    		<button onclick="postComment()">Send Comment</button>
+			    			</form>
+				    </div>
+	                 </div>
+	                 </div>
+	               </div>
+	             </div>
+	            </div>
+	       </div>
+	   </div>
+	</div>
+</div>
 
   <!-- Modal content -->
-  <div class="modal-content" style = "display:table">
+  <!-- <div class="modal-content" style = "display:table">
     <div class="modal-header">
       <span class="close">X</span>
       <h2 id = "challengeTitle"></h2>
-
     </div >
-    	<div id = "row" style = "display:row">
-		    <div style = "display:table-cell;width:25%;margin-left:25px;padding-right:25px;padding-left:25px" class = "textMid">
 
-		    	<div id = "descExp"></div>
-		    	<br/>
-		    	<div id = "commentsDiv" class="scrollable"> 
-		    		<ul id = "commentsList"></ul>
+    	<div id = "row" style = "display:row">
+		    <div style = "width:50%;display:table-cell;text-align:center;" id="modal-body">
+		    	<div id = "desc"></div>
+		    </div>
+
+		    <div style = "display:table-cell;width:25%;margin-left:25px;padding-right:25px;padding-left:25px" class = "textMid">
+		    	<div style= "width:auto;float:left">
+		    		<div style = "display:table-cell;width:35%;margin-right:25px;padding-left:25px;padding-right:25px;float:left" id="opponents" class = "textMid"></div>
+		    		<div style="width:5%;float:left">VS.</div>
+			    	<div id = "user" style = "width:35%;float:left"> </div>
 		    	</div>
 		    	<br/>
-		    	<form>
-		    		<input placeholder="Talk shit here"></input>
-		    		<button onclick="postComment()">Send Comment</button>
-		    	</form>
+
+			    <div id = "commentsDiv" style = "clear:left;width:100%"> 
+			    		<div id = "commentsList" class="scrollable"></div>
+			    		<form>
+				    		<input placeholder="Talk shit here"></input>
+				    		<button onclick="postComment()">Send Comment</button>
+		    			</form>
+			    </div>
 		    </div>
-		    <div style = "width:50%;display:table-cell;" id="modal-body"><div id = "titleField"></div></div>
-		    <div style = "display:table-cell;width:25%;margin-right:25px;padding-left:25px;padding-right:25px" id="opponents" class = "textMid"></div>
+		    <div>
+		    	
+			</div>
+		   <div id = "exp"></div>
 		</div>
 		<div class = "modal-footer">
 			<div class = "submitBtns">
@@ -37,7 +97,7 @@
 				<button onclick = "SubmitDraw()"> Draw </button> 
 			</div>
 		</div>
-  </div>
+  </div> -->
 
 </div>
 
@@ -45,11 +105,6 @@
     <div ng-app="betterBets.myBets" ng-controller="myBetsController">
         <h3>My Bets</h3>
         <div class="row" style="margin-top: 15px;">
-            <div class="col-md-6">
-                <!--<button class="btn bb-btn-secondary" ng-click="tileCtrl.open()" type="button">Open modal with tile</button>-->
-                <button class="btn bb-btn-secondary" ng-click="myBetsCtrl.collapseAll()" type="button">Collapse</button>
-                <button class="btn bb-btn-secondary" ng-click="myBetsCtrl.expandAll()" type="button">Expand</button>
-            </div>
         </div>
         <div style="background-color: white; margin-top: 15px; padding: 15px">
             <div class = "toggle-tile" bb-layout="myBetsCtrl.layout" bb-tiles="myBetsCtrl.tiles" bb-tile-dashboard-all-collapsed="myBetsCtrl.allCollapsed" style="cursor:pointer;">
@@ -66,24 +121,4 @@
         </div>
 
         </div>
-    </div>
-
-    <div ng-repeat="bet in myBetsCtrl.bets">
-        <script type="text/ng-template" id="myBetsTemplate.html">
-            <bb-tile bb-tile-header="myBetsCtrl.name" bb-tile-collapsed="myBetsCtrl.is_collapsed" bb-tile-settings-click="myBetsCtrl.openSettings()">
-                <bb-tile-header-content>
-                    bet.opponent
-                </bb-tile-header-content>
-                <div bb-tile-section>
-                    <div class="bet-container">
-                        <div id="you-container" class="tile-container"></div>
-                        <div id="graph-container"  class="tile-container"></div>
-                        <div id="opponent-container"  class="tile-container"></div>
-
-                    </div>
-                 </div>
-                <script src="piesource.js"> </script>
-            </bb-tile>
-        </script>
-
     </div>

@@ -44,19 +44,18 @@ window.onload = function() {
 	}
 
 	var span = document.getElementsByClassName("close")[0];
-	var modal = document.getElementById('myModal');
+	var modal = document.getElementById('modal-fullscreen');
 	// When the user clicks on <span> (x), close the modal
 	span.onclick = function() {
-	    modal.style.display = "none";
+	    modal.style.visibility = "hidden";
 	}
 
 	// When the user clicks anywhere outside of the modal, close it
 	window.onclick = function(event) {
 	    if (event.target == modal) {
-	        modal.style.display = "none";
+	        modal.style.visibility = "hidden";
 	    }
 	}
-
 }
 
 function toggleTile(tile) {
@@ -81,8 +80,8 @@ function isHidden(el) {
 
 function openModal(g) {
 	g = g.parentElement;
-	var modal = document.getElementById('myModal');
-	modal.style.display = "block";
+	var modal = document.getElementById('modal-fullscreen');
+	modal.style.visibility = "visible";
 	var tags = g.getElementsByTagName("strong");
 	displayInModal(tags[0].innerText);
 }

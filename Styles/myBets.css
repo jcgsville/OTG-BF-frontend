@@ -1,34 +1,17 @@
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
 
-body {
+html, body {
     font-family: Helvetica;
+    overflow-x: hidden;
+}
+.descriptionC {
+    font-size: 26;
+    font-weight: 200;
+    letter-spacing: -.5;
+    margin-bottom: -80px;
 }
 
-/* Modal Content */
-.modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
+#challengeTitle {
+    text-align:center;
 }
 
 /* Add Animation */
@@ -41,42 +24,6 @@ body {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
 }
-.modal-content {
-        border-radius:10px;
-}
-/* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    background-color:darkred;
-    border-radius:4px;
-    padding-left:7px;
-    padding-right:7px;
-}
-
-.close:hover,
-.close:focus {
-    color:#f2f2f2;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-header {
-    padding: 2px 16px;
-    background-color: #00004d;
-    color: white;
-    border-radius:10px;
-}
-
-#modal-body {padding: 2px 16px;}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #00004d;
-    color: white;
-}
 
 .center {
     padding: 0px 0;
@@ -88,38 +35,22 @@ body {
     vertical-align: middle;
     line-height: 30px;  
 }
-
-#modal-body {
-    border-width: 3px;
-    border-style: solid;
-    -webkit-border-image: 
-      -webkit-gradient(linear, 0 0, 0 100%, from(black), to(rgba(0, 0, 0, 0))) 1 100%;
-    -webkit-border-image: 
-      -webkit-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
-    -moz-border-image:
-      -moz-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;    
-    -o-border-image:
-      -o-linear-gradient(black, rgba(0, 0, 0, 0)) 1 100%;
-    border-image:
-      linear-gradient(to bottom, #00004d, rgba(0, 0, 0, 0)) 0.5 100%;
+.hideModal{
+    visibility:hidden;
 }
 
 input {
     background-color: #f2f2f2;
     color: black;
 }
-
-#commentsList li {
-    border-radius:15px;
-    border:2px solid darkgray;
-    list-style-type: none;
-    font-style: Helvetica;
-
+.row {
+    overflow-x: auto;
 }
 
 .scrollable {
     height: 300px;
     overflow-y: auto;
+    overflow-x:hidden
     margin:0;
 } 
 
@@ -127,6 +58,201 @@ button {
     margin:20px;
 }
 
+.bla{
+    width= 90%;
+    max-width: 1200px;
+}
 .submitBtns {
     text-align:center;
+}
+.sid {
+    height:400px;
+    padding:15;
+    overflow:auto;
+    display:inline-block;
+    width:auto;
+    height:auto;
+}
+#user {
+    text-align:left;
+}
+
+#opponents {
+    text-align:right;
+}
+
+@import "compass/css3";
+
+body {
+    font-family: "Helvetica Neue";
+    font-size: 20px;
+    font-weight: normal;
+}
+
+section {
+    max-width: 450px;
+    margin: 50px auto;
+
+    div {
+        max-width: 255px;
+        word-wrap: break-word;
+        margin-bottom: 20px;
+    line-height: 24px;
+    }
+}
+
+.clear {clear: both}
+.from-me {
+    position:relative;
+    padding:10px 20px;
+    color:white; 
+    background:#0B93F6;
+    border-radius:25px;
+    float: right;
+    width:50%;
+
+ 
+}
+
+.from-me:before {
+        content:"";
+        position:absolute;
+        z-index:-1;
+        bottom:-2px;
+        right:-7px;
+        height:20px;
+        border-right:20px solid #0B93F6;
+        border-bottom-left-radius: 16px 14px;
+        -webkit-transform:translate(0, -2px);
+}
+
+.from-me:after {
+        content:"";
+        position:absolute;
+        z-index:1;
+        bottom:-2px;
+        right:-56px;
+        width:26px;
+        height:20px;
+        background:white;
+        border-bottom-left-radius: 10px;
+        -webkit-transform:translate(-30px, -2px);
+}
+
+.from-them {
+    position:relative;
+    padding:10px 20px;
+    background:#E5E5EA;
+    border-radius:25px;
+    color: black;
+  float: left;
+      width:50%;
+        
+}
+
+.from-them:before {
+        content:"";
+        position:absolute;
+        z-index:2;
+        bottom:-2px;
+        left:-7px;
+        height:20px;
+        border-left:20px solid #E5E5EA;
+        border-bottom-right-radius: 16px 14px;
+        -webkit-transform:translate(0, -2px);
+    }
+
+.from-them:after {
+        content:"";
+        position:absolute;
+        z-index:3;
+        bottom:-2px;
+        left:4px;
+        width:26px;
+        height:20px;
+        background:white;
+        border-bottom-right-radius: 10px;
+        -webkit-transform:translate(-30px, -2px);
+    }
+
+
+body {
+  background: #72cffa;
+}
+
+/* .modal-transparent */
+
+.modal-transparent {
+  background: transparent;
+}
+.modal-transparent .modal-content {
+  background: transparent;
+}
+.modal-backdrop.modal-backdrop-transparent {
+  background: #ffffff;
+}
+.modal-backdrop.modal-backdrop-transparent.in {
+  opacity: .9;
+  filter: alpha(opacity=90);
+}
+
+/* .modal-fullscreen */
+
+.modal-fullscreen {
+  background: rgba(255,255,255,0.6);
+}
+.modal-fullscreen .modal-content {
+  background: transparent;
+  border: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.modal-backdrop.modal-backdrop-fullscreen {
+  background: #ffffff;
+}
+.modal-backdrop.modal-backdrop-fullscreen.in {
+  opacity: .97;
+  filter: alpha(opacity=97);
+}
+
+/* .modal-fullscreen size: we use Bootstrap media query breakpoints */
+
+.modal-fullscreen .modal-dialog {
+  margin: 0;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .modal-fullscreen .modal-dialog {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .modal-fullscreen .modal-dialog {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .modal-fullscreen .modal-dialog {
+     width: 1170px;
+  }
+}
+
+/* centering styles for jsbin */
+html,
+body {
+  width:100%;
+  height:100%;
+}
+html {
+  display:table;
+}
+body {
+  display:table-cell;
+  vertical-align:middle;
+}
+body > .btn {
+  display: block;
+  margin: 0 auto;
 }

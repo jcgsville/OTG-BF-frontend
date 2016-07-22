@@ -56,14 +56,14 @@ expDate:"7/29/2016"}];
     .append("xhtml:g")
       .style("font", "20px 'Helvetica Neue'")
       .style("text-align", "left")
-      .html("<strong>" + d.challenge + "</strong><br/><hr/>")
+      .html("<strong>" + d.username + " v. " + d.opponent + "</strong><br/><hr/>")
       .on("click", function() {
             var svgs = document.getElementsByTagName("svg");
             for (var p = 0; p < svgs.length; p++) {
               var tags = svgs[p].getElementsByTagName("strong");
               for (var i = 0; i < tags.length; i++) {
-
-                if (tags[i].innerText == d.challenge) {
+                var name =  d.username + " v. " + d.opponent;
+                if (tags[i].innerText == name) {
                   if (svgs[p].style.visibility == "visible") {
                       console.log(svgs[p]);
                       svgs[p].style.visibility = "hidden";
@@ -107,7 +107,8 @@ expDate:"7/29/2016"}];
 
       var label = g.append("text")
         .text(function(){
-          return d.challenge;
+          var name =  d.username + " v. " + d.opponent;
+          return name;
         })
         .attr({
           "alignment-baseline": "middle",
@@ -160,7 +161,8 @@ function type(d) {
 function displayInModal(title) {
   data.forEach(function(d) {
     console.log(d);
-    if (title == d.challenge) {
+    var name =  d.username + " v. " + d.opponent;
+    if (title == name) {
         updateTitleDesc(d);
         displayGraphInModal(d);
     }
@@ -169,9 +171,11 @@ function displayInModal(title) {
 
 function updateTitleDesc(d){
   console.log(d);
-  document.getElementById("challengeTitle").innerText = d.challenge;
-  document.getElementById("descExp").innerHTML = "<h2 class=\"center\">" + d.description + "<br/><br/>" + d.expDate + "</h2>";
-  document.getElementById("opponents").innerHTML = "<h2 class=\"center\">USER:" + d.username + "</h2><h2 class=\"center\">USER'S CHARITY:" + getCharity(d, d.username) + "</h2><br/><h2 class=\"center\">OPPONENT: " + d.opponent  + "</h2><h2 class=\"center\"> OPPONENT'S CHARITY: " + getCharity(d, d.opponent) + "</h2>";
+  document.getElementById("challengeTitle").innerText = d.username + " v. " + d.opponent;
+  document.getElementById("desc").innerHTML = "<h4 class=\"center descriptionC\">" + d.description + "<h4/>";
+  document.getElementById("exp").innerHTML = "<h4 class=\"center\">" + "This bet expires on " + d.expDate + ". Your money will be donated to your shit on that date.<h4/>";
+  document.getElementById("user").innerHTML = "<h1>" + d.username + "</h1><h2>is donating to " + getCharity(d, d.username) + "</h2><h2> if " + d.winCondition +" </h2>";
+  document.getElementById("opponents").innerHTML = "<h1>" + d.opponent  + "</h1><h2> is donating to " + getCharity(d, d.opponent) + "</h2><h2> if " + d.loseCondition +"</h2>";
 }
 
 function getCharity(data, name) {
@@ -186,59 +190,65 @@ function getCharity(data, name) {
 function loadComments(d) {
   var commentsList = d.comments;
   for (var c = 0; c < commentsList.length; c++) {
-        var ul = document.getElementById("commentsList");
+        var div = document.getElementById("commentsList");
+        var msg = document.createElement("div");
+
+        var clear = document.createElement("div");
         if (commentsList[c].user == d.username) {
-          color = "lightgreen";
+          msg.className = "from-me";
+          
         } else {
-          color = "lightgray";
+           msg.className = "from-them";
         }
-        var li = document.createElement("li");
-        li.style.backgroundColor = color;
-        li.appendChild(document.createTextNode(commentsList[c].comment));
-        ul.appendChild(li);
+        clear.className = "clear";
+        var text = document.createElement("p");
+        var node = document.createTextNode(commentsList[c].comment);
+
+        var br = document.createElement("br");
+        text.appendChild(node);
+
+        clear.appendChild(br);
+        clear.style.lineHeight = "50%";
+        msg.appendChild(text);
+        div.appendChild(msg);
+        div.appendChild(clear);
    }
 }
 
 function displayGraphInModal(d) {
-    var width = 1500;
+    var width = 1000;
     var height = 600;
-    var tiles = d3.select("#modal-body");
-    document.getElementById("titleField").innerHTML="";
+    var tiles = d3.select("#graph");
+    //document.getElementById("titleField").innerHTML="";
     document.getElementById("commentsList").innerHTML="";
     tiles.select("svg").remove();
     loadComments(d);
 
 
-     d3.select("#titleField")
-     .append("foreignObject")
-      .attr("width", "100%")
-      .attr("text-align", "center")
-      .attr("cy", "50")
-      //.attr("transform", "translate(-145,-300)")
-    .append("xhtml:div")
-       .attr("text-align", "center")
-      .attr("vertical-align", "text-top")
-      .style("font", "40px 'Helvetica Neue'")
-      .html("<strong>" + d.username + " v. " + d.opponent + "</strong>");
 
     var svg = tiles.append("svg")
-        .attr("width", width/1.5)
-        .attr("height", height)
+        .attr("width", "80%")
+        .attr("height", "100%")
+        .attr("class", "center")
+        .attr("position", "relative")
       .append("g")
-        .attr("transform", "translate(500," + height / 2 + ")");
+        .attr("transform", "translate(" + width/3 + "," + height / 2 + ")");
 
    
 
     var g = svg.selectAll(".arc")
         .data(pie(d.betVals))
       .enter().append("g")
-        .attr("class", "arc");
+        .attr("class", "arc")
+        .attr("width", "80%")
+        .attr("height", "100%");
 
 
 
  
     var path = g.append("path")
         .attr("d", arc)
+        .attr("transform", "translate(" + width/10 + ",0)")
         .style("fill",  function(d) {
           if (done == false) {
             done = true;
@@ -255,7 +265,8 @@ function displayGraphInModal(d) {
      g.append("circle")
         .attr("cx", 0)
         .attr("cy", 0)
-        .attr("r", radius - 30)
+        .attr("transform", "translate(" + width/10 + ",0)")
+        .attr("r", radius - 40)
         .attr("fill", "white")
 
         .append("text")
@@ -265,19 +276,11 @@ function displayGraphInModal(d) {
         })
 
 
-      var label = g.append("text")
-        .text(function(){
-          return d.challenge;
-        })
-        .attr({
-          "alignment-baseline": "middle",
-          "text-anchor": "middle"
-        })
 
 
         path.append("foreignObject")
-          .attr("width", 200)
-          .attr("height", 50)
+          .attr("width", "30%")
+          .attr("height", "10%")
           .attr("transform", "translate(250,0)")
         .append("xhtml:g")
           .style("font", "20px 'Helvetica Neue'")
@@ -304,7 +307,7 @@ function displayGraphInModal(d) {
       .style("text-align", "center")
       .attr("height", 50)
       .attr("transform", function(d) { var c = arc.centroid(d);
-        return "translate(" + (c[0]*3 -100)+"," + c[1]*2.5 + ")";
+        return "translate(" + (c[0]*3)+"," + c[1]*3 + ")";
       })
     .append("xhtml:g")
       .style("font", "20px 'Helvetica Neue'")
