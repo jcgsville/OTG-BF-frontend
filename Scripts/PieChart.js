@@ -24,15 +24,15 @@ opponent: "sidm",
 betVals: [{"label":"wadem", "value":20, charity:"Cancer Society"}, {"label":"sidm", "value":50, charity:"Cancer Foundation"}], 
 winCondition:"Steelers win", 
 loseCondition:"Patriots win", 
-comments: [{"user":"wadem", "comment":"u a bitch", "time":"2:04 am"}, 
-{"user":"sidm", "comment":"ur mom's a whore", "time":"2:05 am"},
-{"user":"sidm", "comment":"ur mom's a whore slksjdfl sdl ksdlf ksd lk sdlfk sdlf sld flsdk flskd flks dfl ksdflkjsdlkf sdf lksdjf", "time":"2:05 am"},
-{"user":"wadem", "comment":"ur mom's a whore slksjdfl sdl ksdlf ksd lk sdlfk sdlf sld flsdk flskd flks dfl ksdflkjsdlkf sdf lksdjf", "time":"2:05 am"},
+comments: [{"user":"wadem", "comment":"you're the reason they put instructions on shampoo!", "time":"2:04 am"}, 
+{"user":"sidm", "comment":"...well its not intuitive", "time":"2:05 am"},
+{"user":"wadem", "comment":"thats why you work at fairchild", "time":"2:05 am"},
+{"user":"sidm", "comment":"ha", "time":"2:05 am"},
 ],
 description:"Bet between sid and wade for steelers v Patriots",
 expDate:"7/28/2016"
 }, 
-{username:"wadem", challenge:"SuperBowl 2", opponent: "jacob", betVals:[{"label":"wadem", "value":30, charity:"Animal Society"}, {"label":"jacob", "value":30, charity:"Save Pandas"}], winCondition:"Steelers win", loseCondition:"Panthers win", comments: [{"user":"wadem", "comment":"u a bitch", "time":"2:04 am"}, {"user":"sidm", "comment":"ur mom's a whore", "time":"2:05 am"}], description:"Bet between jacob and wade for Panthers v steelers",
+{username:"wadem", challenge:"SuperBowl 2", opponent: "jacob", betVals:[{"label":"wadem", "value":30, charity:"Animal Society"}, {"label":"jacob", "value":30, charity:"Save Pandas"}], winCondition:"Steelers win", loseCondition:"Panthers win", comments: [{"user":"wadem", "comment":"you're going down!", "time":"2:04 am"}, {"user":"sidm", "comment":"yeah right!", "time":"2:05 am"}], description:"Bet between jacob and wade for Panthers v steelers",
 expDate:"7/29/2016"}];
 
   data.forEach(function(d) {
@@ -56,13 +56,13 @@ expDate:"7/29/2016"}];
     .append("xhtml:g")
       .style("font", "20px 'Helvetica Neue'")
       .style("text-align", "left")
-      .html("<strong>" + d.username + " v. " + d.opponent + "</strong><br/><hr/>")
+      .html("<strong>" + d.username + " vs " + d.opponent + "</strong><br/><p>"+d.description+"</p><hr/>")
       .on("click", function() {
             var svgs = document.getElementsByTagName("svg");
             for (var p = 0; p < svgs.length; p++) {
               var tags = svgs[p].getElementsByTagName("strong");
               for (var i = 0; i < tags.length; i++) {
-                var name =  d.username + " v. " + d.opponent;
+                var name =  d.username + " vs " + d.opponent;
                 if (tags[i].innerText == name) {
                   if (svgs[p].style.visibility == "visible") {
                       console.log(svgs[p]);
@@ -82,11 +82,11 @@ expDate:"7/29/2016"}];
         .style("fill",  function(d) {
           if (done == false) {
             done = true;
-            return "red";
+            return "#00994d";
 
           } else {
             done = false;
-            return "blue";
+            return "00004d";
 
           }
         });
@@ -95,7 +95,7 @@ expDate:"7/29/2016"}];
      g.append("circle")
         .attr("cx", 0)
         .attr("cy", 0)
-        .attr("r", radius - 30)
+        .attr("r", radius - 50)
         .attr("fill", "white")
 
         .append("text")
@@ -107,7 +107,7 @@ expDate:"7/29/2016"}];
 
       var label = g.append("text")
         .text(function(){
-          var name =  d.username + " v. " + d.opponent;
+          var name =  d.username + " vs " + d.opponent;
           return name;
         })
         .attr({
@@ -161,7 +161,7 @@ function type(d) {
 function displayInModal(title) {
   data.forEach(function(d) {
     console.log(d);
-    var name =  d.username + " v. " + d.opponent;
+    var name =  d.username + " vs " + d.opponent;
     if (title == name) {
         updateTitleDesc(d);
         displayGraphInModal(d);
@@ -171,11 +171,11 @@ function displayInModal(title) {
 
 function updateTitleDesc(d){
   console.log(d);
-  document.getElementById("challengeTitle").innerText = d.username + " v. " + d.opponent;
+  document.getElementById("challengeTitle").innerText = d.username + " vs " + d.opponent;
   document.getElementById("desc").innerHTML = "<h4 class=\"center descriptionC\">" + d.description + "<h4/>";
   document.getElementById("exp").innerHTML = "<h4 class=\"center\">" + "This bet expires on " + d.expDate + ". Your money will be donated to your shit on that date.<h4/>";
-  document.getElementById("user").innerHTML = "<h1>" + d.username + "</h1><h2>is donating to " + getCharity(d, d.username) + "</h2><h2> if " + d.winCondition +" </h2>";
-  document.getElementById("opponents").innerHTML = "<h1>" + d.opponent  + "</h1><h2> is donating to " + getCharity(d, d.opponent) + "</h2><h2> if " + d.loseCondition +"</h2>";
+  document.getElementById("user").innerHTML = "<h1 class=\"userStyle\">" + d.username + "</h1><h2 class=\"charityName\"><span class=\"charityNameHeader\">Charity:</span><br/>" + getCharity(d, d.username) + "</h2><h2 class=\"charityName\"> <span class=\"charityNameHeader\">Condition:</span><br/>" + d.winCondition +" </h2>";
+  document.getElementById("opponents").innerHTML = "<h1 class=\"userStyle\">" + d.opponent  + "</h1><h2 class=\"charityName\"><span class=\"charityNameHeader\">Charity:</span><br/>" + getCharity(d, d.opponent) + "</h2><h2 class=\"charityName\"><span class=\"charityNameHeader\">Condition:</span><br/>" + d.loseCondition +"</h2>";
 }
 
 function getCharity(data, name) {
@@ -190,11 +190,16 @@ function getCharity(data, name) {
 function loadComments(d) {
   var commentsList = d.comments;
   for (var c = 0; c < commentsList.length; c++) {
+      addComment(commentsList[c].comment, commentsList[c].user, d);
+   }
+}
+
+function addComment(comment, user, d) {
         var div = document.getElementById("commentsList");
         var msg = document.createElement("div");
 
         var clear = document.createElement("div");
-        if (commentsList[c].user == d.username) {
+        if (user == d.username) {
           msg.className = "from-me";
           
         } else {
@@ -202,7 +207,7 @@ function loadComments(d) {
         }
         clear.className = "clear";
         var text = document.createElement("p");
-        var node = document.createTextNode(commentsList[c].comment);
+        var node = document.createTextNode(comment);
 
         var br = document.createElement("br");
         text.appendChild(node);
@@ -212,12 +217,10 @@ function loadComments(d) {
         msg.appendChild(text);
         div.appendChild(msg);
         div.appendChild(clear);
-   }
 }
 
 function displayGraphInModal(d) {
-    var width = 1000;
-    var height = 600;
+
     var tiles = d3.select("#graph");
     //document.getElementById("titleField").innerHTML="";
     document.getElementById("commentsList").innerHTML="";
@@ -227,12 +230,13 @@ function displayGraphInModal(d) {
 
 
     var svg = tiles.append("svg")
-        .attr("width", "80%")
+        .attr("width", "100%")
         .attr("height", "100%")
         .attr("class", "center")
-        .attr("position", "relative")
       .append("g")
-        .attr("transform", "translate(" + width/3 + "," + height / 2 + ")");
+        .attr("width", "100%")
+        .attr("height", "100%")
+        .attr("transform", "translate(" + width/8 + "," + height / 2 + ")");
 
    
 
@@ -249,6 +253,7 @@ function displayGraphInModal(d) {
     var path = g.append("path")
         .attr("d", arc)
         .attr("transform", "translate(" + width/10 + ",0)")
+        .attr("position", "relative")
         .style("fill",  function(d) {
           if (done == false) {
             done = true;
@@ -291,9 +296,9 @@ function displayGraphInModal(d) {
           });
 
         path.append("foreignObject")
-          .attr("width", 200)
-          .attr("height", 50)
-          .attr("transform", "translate(-400, 0)")
+          .attr("width", "40%")
+          .attr("height", "10%")
+          //.attr("transform", "translate(-400, 0)")
           .append("xhtml:g")
             .style("font", "20px 'Helvetica Neue'")
             .style("text-align", "center")
@@ -303,9 +308,9 @@ function displayGraphInModal(d) {
 
 
   g.append("foreignObject")
-      .attr("width", 200)
+      .attr("width", "40%")
       .style("text-align", "center")
-      .attr("height", 50)
+      .attr("height", "10%")
       .attr("transform", function(d) { var c = arc.centroid(d);
         return "translate(" + (c[0]*3)+"," + c[1]*3 + ")";
       })

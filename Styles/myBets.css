@@ -1,7 +1,13 @@
 
 html, body {
-    font-family: Helvetica;
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     overflow-x: hidden;
+}
+
+.tylersid{
+ font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    background: blue;
+  
 }
 .descriptionC {
     font-size: 26;
@@ -23,6 +29,24 @@ html, body {
 @keyframes animatetop {
     from {top:-300px; opacity:0}
     to {top:0; opacity:1}
+}
+
+.userStyle{
+    font-size: 30px;
+    font-weight: 600;
+    color: pink;
+}
+
+.charityName{
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+    text-overflow:visible;
+}
+
+.charityNameHeader{
+    font-size:16px;
+    font-weight:300;
 }
 
 .center {
@@ -47,6 +71,9 @@ input {
     overflow-x: auto;
 }
 
+path {
+    position:relative;
+}
 .scrollable {
     height: 300px;
     overflow-y: auto;
@@ -70,7 +97,7 @@ button {
     padding:15;
     overflow:auto;
     display:inline-block;
-    width:auto;
+    width:100%;
     height:auto;
 }
 #user {
@@ -199,13 +226,18 @@ body {
 /* .modal-fullscreen */
 
 .modal-fullscreen {
-  background: rgba(255,255,255,0.6);
+  background: white;
+      -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    -webkit-background-clip: padding-box;
 }
+
 .modal-fullscreen .modal-content {
   background: transparent;
   border: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
+  -webkit-box-shadow:10px 10px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 .modal-backdrop.modal-backdrop-fullscreen {
   background: #ffffff;
@@ -218,10 +250,10 @@ body {
 /* .modal-fullscreen size: we use Bootstrap media query breakpoints */
 
 .modal-fullscreen .modal-dialog {
-  margin: 0;
+  margin: auto;
   margin-right: auto;
-  margin-left: auto;
-  width: 100%;
+  margin-left: 50px;
+  width: 80%;
 }
 @media (min-width: 768px) {
   .modal-fullscreen .modal-dialog {
@@ -237,6 +269,12 @@ body {
   .modal-fullscreen .modal-dialog {
      width: 1170px;
   }
+}
+
+#modal-fullscreen{
+  margin: auto;
+  width: 90%;
+  height: 70%;
 }
 
 /* centering styles for jsbin */
@@ -255,4 +293,56 @@ body {
 body > .btn {
   display: block;
   margin: 0 auto;
+}
+
+#id {
+    margin-top:50px;
+}
+
+#graph {
+    width:100%;
+    margin-top:30px;
+    margin-left:90px;
+}
+
+.col-lg-6 {
+    width:50%;
+}
+
+.fullRow {
+    width:100%;
+}
+
+.commentInput input[type="comment"] {
+ margin-bottom: 10px;
+ border-bottom-right-radius: 0;
+ border-bottom-left-radius: 0;
+ outline: none;
+ box-shadow:none !important;
+ border:0px solid #ccc !important;
+}
+
+.sendBtn {
+    border-width: 0px;
+    outline:none;
+    color:#777777;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background-color:transparent;
+}
+
+strong {
+   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.modal-header{
+    background-color:#f9f9f9;
+    font-size:30px;
+    font-weight: 800;
+    letter-spacing:1px;
+}
+
+#desc {
+    margin-bottom: -250px;
+    height: 100px;
 }

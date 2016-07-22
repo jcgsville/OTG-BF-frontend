@@ -87,5 +87,6 @@ function openModal(g) {
 }
 
 function postComment() {
-	alert("comment posted");
+	var val = document.getElementById("inputField").value;
+	addComment(val, "wadem", "wadem");
 }
