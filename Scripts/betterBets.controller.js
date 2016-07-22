@@ -1,7 +1,9 @@
 ﻿(function () {
     "use strict";
     function betterBetsController() {
-
+    	function doNothing() {
+    		var temp = "nothing";
+    	}
     }
 
     betterBetsController.$inject = [];
