@@ -69,6 +69,22 @@
 }
 /* End template */
 
+.hands{
+  background-image: url("background.png");
+  background-size: cover;
+  position: relative;
+  padding-bottom:34.5vh;
+  margin-bottom:-34.5vh;
+
+}
+
+.bevel{
+  border-radius: 4px;
+  outline: none;
+  box-shadow:none !important;
+  border:1px solid #ccc !important;
+}
+
 /* Sign in */
 .signInBody {
   padding-top: 40px;
